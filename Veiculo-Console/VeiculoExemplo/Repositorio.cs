@@ -1,4 +1,6 @@
-﻿namespace VeiculoExemplo
+﻿using System.ComponentModel;
+
+namespace VeiculoExemplo
 {
     public static class Repositorio
     {
@@ -41,7 +43,10 @@
 
         public static void Alterar(Veiculo veiculo)
         {
-            foreach (var item in ListaVeiculo.Where(w => w.Id == veiculo.Id))
+            //Filtro ocorre no .Where por Id do veiculo da lista
+            //com o id o veiculo do parametro
+            //.Where(listaEmMemoria => listaEmMemoria.Id == veiculo.Id)) 
+            foreach (var item in ListaVeiculo.Where(listaEmMemoria => listaEmMemoria.Id == veiculo.Id)) 
             {
                 item.Nome = veiculo.Nome;
             }
@@ -49,6 +54,9 @@
 
         public static void Remover(int id)
         {
+            ///System.Linq do C#
+            ///Valor NULL, não remove da lista
+            ///Se conter valor, ele remove da lista
             var localVeiculo = ListaVeiculo.FirstOrDefault(w => w.Id == id);
             if (localVeiculo != null)
             {

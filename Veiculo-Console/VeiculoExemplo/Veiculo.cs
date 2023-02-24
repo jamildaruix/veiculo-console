@@ -1,33 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VeiculoExemplo
+﻿namespace VeiculoExemplo
 {
     public class Veiculo
     {
+        public Veiculo(int id, string nome)
+        {
+            Id = id;
+            Nome = nome;
+
+        }
+
         public int Id { get; set; }
         public string Nome { get; set; }
-    }
-
-    public class Carro : Veiculo 
-    {
-        public int Valor { get; set; }
-
-        public void ImprimirDados()
-        {
-            Console.WriteLine($"Id {Id} - Nome {Nome} - Valor {Valor}");
-        }
-    }
-
-    public class Moto : Veiculo
-    {
-
-        public void ImprimirDados()
-        {
-            Console.WriteLine($"Id {Id} - Nome {Nome}");
-        }
     }
 }
